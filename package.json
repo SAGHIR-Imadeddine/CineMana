@@ -1,0 +1,17 @@
+{
+  "name": "cine-mana",
+  "version": "1.0.0",
+  "description": "CineMana is a cinema management app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Cinema",
+    "movies",
+    "watch online",
+    "movie night"
+  ],
+  "author": "SAG Imad",
+  "license": "ISC"
+}
