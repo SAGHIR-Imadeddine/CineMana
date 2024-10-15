@@ -61,3 +61,5 @@ const hardDelete = async (id) => {
         throw new Error('Error deleting user');
     }   
 }
+
+export default UserRepo;
