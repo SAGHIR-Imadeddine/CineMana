@@ -1,6 +1,6 @@
 import { UserModel } from "../Models/userSchema.js";
 
-const create = async (userData) => {
+export const create = async (userData) => {
 
     try {
         const userInstance = new UserModel(userData);
@@ -12,7 +12,7 @@ const create = async (userData) => {
     }
 }
 
-const findById = async (id) => {
+export const findById = async (id) => {
 
     try {
         return await UserModel.findById(id);
@@ -22,7 +22,7 @@ const findById = async (id) => {
     }
 }
 
-const findByEmail = async (email) => {
+export const findByEmail = async (email) => {
     
     try {
         return await UserModel.findOne({email : email});
@@ -32,7 +32,7 @@ const findByEmail = async (email) => {
     }
 }
 
-const findAll = async () => {
+export const findAll = async () => {
 
     try {
         return await UserModel.find();
@@ -42,7 +42,7 @@ const findAll = async () => {
     }
 }
 
-const update = async (id, userData) => {
+export const update = async (id, userData) => {
 
     try {
         return await UserModel.findByIdAndUpdate(id, userData, { new: true });
@@ -52,7 +52,7 @@ const update = async (id, userData) => {
     }
 }
 
-const hardDelete = async (id) => {
+export const hardDelete = async (id) => {
 
     try {
         return await UserModel.findByIdAndDelete(id);
@@ -61,5 +61,3 @@ const hardDelete = async (id) => {
         throw new Error('Error deleting user');
     }   
 }
-
-export default UserRepo;

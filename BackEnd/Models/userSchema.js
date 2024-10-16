@@ -23,8 +23,8 @@ const UserSchema = new Schema({
     },
     gender : {
         type     : String,
-        required : true,
         enum     : ['male', 'female'],
+        // required : true,
     },
     image : {
         type : MediaSchema,

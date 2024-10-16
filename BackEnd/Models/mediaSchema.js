@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 export const MediaSchema = new Schema({
     fileName : {
-        type : Number,
+        type : String,
         required : true,
     },
     mediaType : {
