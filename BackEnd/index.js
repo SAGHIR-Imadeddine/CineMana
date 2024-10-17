@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { conDB } from './Config/db.js';
 // import logger from './Config/logger.js';
 import router  from './Routes/authRoutes.js';
+import adminRouter from './Routes/adminRoutes.js';
 
 dotenv.config({ path: 'backend/.env'});
 const port = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ conDB();
 app.use(express.json());
 
 app.use('/api/v1', router);
+app.use('/api/v1/admin', adminRouter);
 
 
 // app.use((err, req, res, next) => {

@@ -1,4 +1,4 @@
-import { registerAdmin } from "../../Services/AdminServices/userService";
+import * as UserService from "../../Services/AdminServices/userService.js";
 import { login } from "../../Services/authService.js";
 
 
@@ -17,7 +17,7 @@ export const registerAdmin = async (req, res) => {
         role        : 'admin'
     }; 
     try {
-        const user  = await registerAdmin(userData);
+        const user  = await UserService.registerAdmin(userData);
         const { token } = await login(user.email, password);
 
         return res.header('Authorization', `Bearer ${token}`)

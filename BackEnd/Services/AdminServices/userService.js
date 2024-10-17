@@ -1,4 +1,4 @@
-import {findByEmail, create} from "../Repositories/userRepository.js";
+import {findByEmail, create} from "../../Repositories/userRepository.js";
 import bcrypt from "bcryptjs";
 
 
