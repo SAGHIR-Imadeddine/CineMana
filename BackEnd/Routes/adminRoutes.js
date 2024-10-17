@@ -3,6 +3,7 @@ import * as UserController from "../Controllers/AdminControllers/userController.
 
 const adminRouter = express.Router();
 
-adminRouter.post("/register-admin", (req, res) =>  UserController.registerAdmin(req, res)); // url: /api/v1/auth/register
+adminRouter.post("/register-admin", (req, res) =>  UserController.registerAdmin(req, res)); // url: /api/v1/auth/register-admin
+adminRouter.post("/update-admin/:id", (req, res) =>  UserController.updateAdmin(req, res)); // url: /api/v1/auth/update-admin/id-to-update
 
 export default adminRouter;

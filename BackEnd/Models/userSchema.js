@@ -23,8 +23,9 @@ const UserSchema = new Schema({
     },
     gender : {
         type     : String,
-        enum     : ['male', 'female'],
-        // required : true,
+        
+        required : true,
+        trim     : true,
     },
     image : {
         type : MediaSchema,
@@ -50,6 +51,11 @@ const UserSchema = new Schema({
     isSubscribed : {
         type     : SubscriptionSchema,
         default  : null,
+    },
+    createdBy : {
+        type :  mongoose.Schema.Types.ObjectId,
+        ref : 'User',
+        default : null
     },
     deletedAt : {
         type     : Date,
