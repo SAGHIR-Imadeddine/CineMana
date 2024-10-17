@@ -1,5 +1,5 @@
 import * as UserService from "../../Services/AdminServices/userService.js";
-import { login } from "../../Services/authService.js";
+import { login } from "../../Services/AuthServices/authService.js";
 
 
 export const registerAdmin = async (req, res) => {

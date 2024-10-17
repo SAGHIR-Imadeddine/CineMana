@@ -1,4 +1,4 @@
-import {findByEmail, create} from "../Repositories/userRepository.js";
+import {findByEmail, create} from "../../Repositories/userRepository.js";
 import jwt  from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
