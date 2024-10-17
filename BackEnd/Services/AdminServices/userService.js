@@ -34,3 +34,15 @@ export const updateAdmin = async (id, userData) => {
         throw new Error('Error updating admin');
     }
 }
+
+export const deleteAdmin = async (id) => {
+    try {
+        const user = await UserRepo.findById(id);
+        if(!user) throw new Error('Admin not found!');
+        user.deletedAt = new Date();
+        return user;
+    } catch (error) {
+        console.error('Error updating admin:', error);
+        throw new Error('Error updating admin');
+    }
+}

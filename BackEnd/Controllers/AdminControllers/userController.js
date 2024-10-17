@@ -53,6 +53,19 @@ export const updateAdmin = async (req, res) => {
         return res.status(200).json({ message: 'Admin updated successfully', user });
         
     } catch (error) {
-        
+        const statusCode = error.message.includes('Admin not found!') ? 400 : 500;
+        return res.status(statusCode).json({ message: error.message });
     }
+}
+
+export const deleteAdmin = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const user = await UserService.deleteAdmin(id);
+        return res.status(200).json({ message: 'Admin softdeleted successfully', user });
+    } catch (error) {
+        const statusCode = error.message.includes('Admin not found!') ? 400 : 500;
+        return res.status(statusCode).json({ message: error.message });
+    }
+
 }
