@@ -1,6 +1,6 @@
 import {findByEmail, create} from "../Repositories/userRepository.js";
 import jwt  from "jsonwebtoken";
-import bcrypt from "bcryptjs"
+import bcrypt from "bcryptjs";
 
 
 export const register = async (userData) => {

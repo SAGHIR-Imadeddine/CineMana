@@ -61,3 +61,23 @@ export const hardDelete = async (id) => {
         throw new Error('Error deleting user');
     }   
 }
+
+export const getAdmins = async () => {
+    
+    try {
+        return await UserModel.find({role : "admin"});
+    } catch (error) {
+        console.error('Error finding user:', error);
+        throw new Error('Error finding user');
+    }
+}
+
+export const getUsers = async () => {
+    
+    try {
+        return await UserModel.find({role : "user"});
+    } catch (error) {
+        console.error('Error finding user:', error);
+        throw new Error('Error finding user');
+    }
+}
