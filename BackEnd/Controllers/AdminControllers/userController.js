@@ -92,7 +92,7 @@ export const banUser = async (req, res) =>{
 
         return res.status(200).json({ message: 'User Banned', user, banRecord });
     } catch (error) {
-        const statusCode = error.message.includes('Error finding user') ? 500 : 400;
+        const statusCode = error.message.includes('Error banning user') ? 500 : 400;
         return res.status(statusCode).json({ message: error.message });
     }
 }

@@ -54,7 +54,7 @@ export const hardDelete = async (id) => {
 
 export const countUserBans = async (userId) => {
     try {
-        return await BanModel.find({user : userId}).count();
+        return await BanModel.countDocuments({user : userId});
     } catch (error) {
         console.error('Error finding user:', error);
         throw new Error('Error finding user');
