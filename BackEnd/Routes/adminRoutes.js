@@ -1,6 +1,7 @@
 import express from "express";
 import * as UserController from "../Controllers/AdminControllers/userController.js";
 import * as MovieController from "../Controllers/AdminControllers/movieController.js";
+import * as RoomController from "../Controllers/AdminControllers/roomController.js";
 
 const router = express.Router();
 
@@ -13,7 +14,10 @@ router.post("/add-movie",        (req, res) =>  MovieController.addMovie(req, re
 router.post("/update-movie/:id", (req, res) =>  MovieController.updateMovie(req, res)); // url: /api/v1/admin/update-movie/id-to-update
 router.post("/delete-movie/:id", (req, res) =>  MovieController.deleteMovie(req, res)); // url: /api/v1/admin/delete-movie/id-to-delete
 
-// Routes to handeling Users
+// Routes handeling Users
 router.post("/ban-user/:id",     (req, res) =>  UserController.banUser(req, res)); // url: /api/v1/admin/ban-user
+
+// Routes handeling Rooms
+router.post("/new-room",     (req, res) =>  RoomController.addRoom(req, res)); // url: /api/v1/admin/new-room
 
 export default router;
