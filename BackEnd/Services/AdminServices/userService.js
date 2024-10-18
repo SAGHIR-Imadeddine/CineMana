@@ -46,3 +46,14 @@ export const deleteAdmin = async (id) => {
         throw new Error('Error updating admin');
     }
 }
+
+export const getUserById = async (id) => {
+    try {
+        const user = await UserRepo.findById(id);
+        if(!user) throw new Error('User not found!');
+        return user;
+    } catch (error) {
+        console.error('Error finding user:', error);
+        throw new Error('Error finding user');
+    }
+}
