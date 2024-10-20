@@ -39,11 +39,14 @@ export const deleteAdmin = async (id) => {
     try {
         const user = await UserRepo.findById(id);
         if(!user) throw new Error('Admin not found!');
+        
         user.deletedAt = new Date();
+        user.save();
+
         return user;
     } catch (error) {
-        console.error('Error updating admin:', error);
-        throw new Error('Error updating admin');
+        console.error('Error deleting admin:', error);
+        throw new Error('Error deleting admin');
     }
 }
 

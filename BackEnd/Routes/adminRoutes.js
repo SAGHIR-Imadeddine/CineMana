@@ -19,5 +19,7 @@ router.post("/ban-user/:id",     (req, res) =>  UserController.banUser(req, res)
 
 // Routes handeling Rooms
 router.post("/new-room",     (req, res) =>  RoomController.addRoom(req, res)); // url: /api/v1/admin/new-room
+router.post("/update-room",     (req, res) =>  RoomController.updateRoom(req, res)); // url: /api/v1/admin/update-room
+router.post("/archive-room",     (req, res) =>  RoomController.archiveRoom(req, res)); // url: /api/v1/admin/archive-room
 
 export default router;

@@ -51,3 +51,13 @@ export const hardDelete = async (id) => {
         throw new Error('Error deleting room');
     }   
 }
+
+export const findByName = async (name) => {
+
+    try {
+        return await RoomModel.findOne({room  : name});
+    } catch (error) {
+        console.error('Error fetching rooms:', error);
+        throw new Error('Error fetching rooms');
+    }
+}
