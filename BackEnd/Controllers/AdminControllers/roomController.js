@@ -4,7 +4,7 @@ import * as RoomService from "../../Services/AdminServices/roomService.js";
 export const addRoom = async (req, res) => {
     const {room, roomImg, type, capacity, rows, cols, isAvailable, createdBy} = req.body;
     
-    if(!room || !roomImg || !type || !capacity || !rows || !cols || !isAvailable || !createdBy) 
+    if(!room || !roomImg || !type || !capacity || !rows || !cols || !createdBy) 
     return res.status(400).json({message: 'All fields must be filled...'});
     
     const roomData = {
@@ -20,7 +20,7 @@ export const addRoom = async (req, res) => {
     try {
         const newRoom = await RoomService.createRoom(roomData);
         if(!newRoom) return res.status(500).json({message : 'Error creating room!'});
-        return res.status(200).json({ message: 'Room created successfully.', roomData });
+        return res.status(200).json({ message: 'Room created successfully.', newRoom });
 
     } catch (error) {
         const statusCode = error.message.includes('Room already exists!') ? 400 : 500;
@@ -48,9 +48,9 @@ export const updateRoom = async (req, res) => {
     };
     try {
         const updated = await RoomService.updateRoom(id, roomData);
-        if(!updated) return res.status(500).json({message : 'Error creating room!'});
-        
-        return res.status(200).json({ message: 'Room created successfully.', roomData });  
+        if(!updated) return res.status(500).json({message : 'Error updating room!'});
+
+        return res.status(200).json({ message: 'Room updated successfully.', updated });  
     } catch (error) {
         const statusCode = error.message.includes('Room not found!') ? 400 : 500;
         return res.status(statusCode).json({ message: error.message });

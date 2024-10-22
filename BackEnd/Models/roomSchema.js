@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { MediaSchema } from "./mediaSchema";
+import { MediaSchema } from "./mediaSchema.js";
 
 const { Schema } = mongoose;
 
